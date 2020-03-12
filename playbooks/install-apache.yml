@@ -1,0 +1,11 @@
+---
+- hosts: local
+  tasks:
+    - name: Installing Apache
+      apt: 
+        name: apache2
+        state: present
+
+
+
+...
