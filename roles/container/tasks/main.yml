@@ -1,0 +1,7 @@
+---
+# tasks file for container
+- name: Install another programs
+  apt:
+    name: "{{ packages }}"
+    state: present
+...  

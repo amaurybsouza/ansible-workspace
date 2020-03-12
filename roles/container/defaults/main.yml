@@ -1,0 +1,6 @@
+---
+# defaults file for container
+packages:
+  - apache2
+  - nmap
+...
