@@ -1,0 +1,34 @@
+---
+- hosts: local
+  tasks:
+    - name: Installating default programs for Debian and CentOS
+      apt: name={{ item }} state=present
+      with_items:
+        - vlc
+        - gimp
+        - pinta
+        - brasero
+        - ubuntu-restricted-extras
+        - atom
+        - geary
+        - chromium
+        - virtualbox
+    - name: Install a .deb package from the internet (Skype)
+      apt: 
+        deb: https://go.skype.com/skypeforlinux-64.deb
+    - name: Installing package skypeforlinux
+      apt:
+        name: skypeforlinux
+        state: present
+    - name: Install a .deb package from the internet (Google Chrome)
+      apt:
+        deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - name: Completting installation Chrome
+      shell:
+        
+
+
+
+
+
+...

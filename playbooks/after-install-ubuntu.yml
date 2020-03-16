@@ -2,5 +2,6 @@
 - hosts: local
   tasks:
     - name: Preparing system for updating
+      apt:
 
 ...
