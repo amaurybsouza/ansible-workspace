@@ -13,6 +13,7 @@
         - geary
         - chromium
         - virtualbox
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
     - name: Install a .deb package from the internet (Skype)
       apt: 
         deb: https://go.skype.com/skypeforlinux-64.deb
@@ -25,7 +26,7 @@
         deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - name: Completting installation Chrome
       shell:
-        
+
 
 
 
