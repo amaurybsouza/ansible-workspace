@@ -11,5 +11,31 @@
     - name: Remove dependencies that are no longer required
       apt:
         autoremove: yes
+    - name: Installing useful software for playing MP3
+      apt: name={{ item }} state=present
+      with_items:
+        - audacious
+        - mc
+        - ffmpeg
+        - youtube-dl
+        - mpv
+        - ubuntu-restricted-extras
+        - ubuntu-wallpapers-karmic
+        - ubuntu-wallpapers-zesty
+    - name: Installing default softwares for Ubuntu
+      apt_key:
+        keyserver: hkp://keyserver.ubuntu.com:80
+        id: 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+        state: present
+    - name: Installing Spotify
+      apt_repository: 
+        repo: 'deb http://repository.spotify.com stable non-free'
+    - name: Finalazing Spotify Installation
+      apt:
+        name: spotify-client 
+        update_cache: yes
+        state: latest
+
+
 
 ...
