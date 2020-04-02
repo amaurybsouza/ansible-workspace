@@ -1,0 +1,8 @@
+---
+# vars file for deploy-ec2-instances
+instance_type: t2.micro
+security_group: giropops
+image: ami-00a208c7cdba991ea
+keypair: projeto-ansible
+region: us-east-1
+count: 3

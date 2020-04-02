@@ -1,0 +1,3 @@
+---
+# tasks file for deploy-ec2-instances
+- include: provisioning.yml
