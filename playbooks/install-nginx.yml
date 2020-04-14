@@ -1,0 +1,5 @@
+- hosts: local
+  tasks:
+    - name: Preparing for installation
+      apt:
+        update_cache
