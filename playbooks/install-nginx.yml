@@ -1,5 +1,26 @@
 - hosts: local
+  become: yes
   tasks:
-    - name: Preparing for installation
+    - name: Installing nginx
       apt:
-        update_cache
+        name: nginx
+        state: latest
+        update_cache: yes
+    - name: Starting nginx
+      service: 
+        name: nginx
+        state: started
+    - name: Copying the index file for remote machine
+      template:
+        src: index.html
+        dest: /var/www/html/index.html
+    - name: Copying nginx service
+      copy:
+        src: nginx.conf
+        dest: /etc/nginx/nginx.conf
+      notify: restarting nginx
+      handlers:
+      - name: restarting nginx
+        service:
+          name: nginx
+          state: restarted
