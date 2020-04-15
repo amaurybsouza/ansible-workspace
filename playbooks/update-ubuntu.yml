@@ -1,17 +1,32 @@
 ---
 - hosts: local
+  become: yes
   tasks:
-    - name: Upgrade all packages to the latest version
+    - name: Upgrade all packages to the latest version (Debian based)
       apt:
         update_cache: yes
         upgrade: yes
+      when: ansible_os_family == "Debian"
       tags: updating
-    - name: Remove useless packages from the cache
+    - name: Upgrade all packages to the latest version (CentOS based)
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_os_family == "Centos"
+      tags: updating
+    - name: Remove useless packages from the cache (Debian based)
       apt:
         autoclean: yes
+      when: ansible_os_family == "Debian"
       tags: remove packages
+    - name: Remove useless packages from the cache (CentOS based)
+      yum:
+        automremove: yes
+      become: yes
+      when: ansible_os_family == "Centos"
     - name: Remove dependencies that are no longer required
       apt:
         autoremove: yes
+      when: ansible_os_family == "Debian"
       tags: remove dependencies
 ...
