@@ -1,0 +1,27 @@
+--- 
+- hosts: Slack group
+  tasks:
+    - name: Amaury Borges Souza
+      profile:
+        work: IT Support Analyst
+        company: NTL
+        e-mail: amaurybsouza@gmail.com
+        telegram: amaurybsouza
+        Linkedin: linkedin.com/in/amaurybsouza/
+    - name: Current stack 
+      skills:
+        Linux: CentOS, Debian, Ubuntu
+        IaC: Git, Ansible, Terraform
+        Containers: Docker
+        Programming: Shell Script and Go
+        Plataforms: AWS and on-premises environment
+        Monitoring: Zabbix and Grafana 
+    - name: Open source contribuions
+      writer:
+        with_items:
+          - Medium: medium.com/@amaurybsouza
+          - Vivaolinux: vivaolinux.com.br/
+          - Github: github.com/amaurybsouza
+          - Dev.to: dev.to/amaurybsouza
+          - Slack: #devops-engineers
+
