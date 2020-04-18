@@ -1,13 +1,11 @@
 --- 
-- hosts: Slack group
+- hosts: devops-campinas slack
   tasks:
     - name: Amaury Borges Souza
       profile:
         work: IT Support Analyst
         company: NTL
-        e-mail: amaurybsouza@gmail.com
         telegram: amaurybsouza
-        Linkedin: linkedin.com/in/amaurybsouza/
     - name: Current stack 
       skills:
         Linux: CentOS, Debian, Ubuntu
