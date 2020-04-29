@@ -1,0 +1,36 @@
+- name: Install programs from Ubuntu repository
+  apt:
+    name: "{{ item }}"
+    state: present
+    with_items:
+      - vlc
+      - gimp
+      - pinta
+      - brasero
+      - vim
+      - ubuntu-restricted-extras
+      - virtualbox
+  when: ansible_os_family == "Debian"
+  tags: installing
+- name: Install programs from CentOS repository
+  yum:
+    name: "{{ item }}"
+    state: present
+    with_items:
+      - vlc
+      - vim
+      - brasero
+      - unzip
+      - p7zip
+      - gnome-tweak-tool
+      - gimp
+      - thunderbird
+      - gstreamer1-plugins-base
+      - gstreamer1-plugins-good
+      - gstreamer1-plugins-ugly
+      - gstreamer1-plugins-bad-free
+      - gstreamer1-plugins-bad-freeworld
+      - gstreamer1-plugins-bad-free-extras
+      - ffmpeg
+  when: ansible_os_family == CentOS
+  tags: installing
