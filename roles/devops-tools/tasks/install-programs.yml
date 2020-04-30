@@ -1,24 +1,39 @@
+# Lembrando que preciso criar um novo repositório no Github para destacar esse projeto.
 - name: Install programs from Ubuntu repository
+  become_user: root
+  become: yes
   apt:
     name: "{{ item }}"
     state: present
     with_items:
       - vlc
+      - git
+      - nmap
+      - openssh-server
+      - openssh-client
       - gimp
+      - curl
       - pinta
       - brasero
       - vim
       - ubuntu-restricted-extras
       - virtualbox
   when: ansible_os_family == "Debian"
-  tags: installing
+  tags: essentials-packages
 - name: Install programs from CentOS repository
+  become_user: root
+  become: yes
   yum:
     name: "{{ item }}"
     state: present
     with_items:
       - vlc
       - vim
+      - git
+      - nmap
+      - curl
+      - openssh-server
+      - openssh-client
       - brasero
       - unzip
       - p7zip
@@ -32,5 +47,5 @@
       - gstreamer1-plugins-bad-freeworld
       - gstreamer1-plugins-bad-free-extras
       - ffmpeg
-  when: ansible_os_family == CentOS
-  tags: installing
+  when: ansible_os_family == "CentOS"
+  tags: essentials-packages

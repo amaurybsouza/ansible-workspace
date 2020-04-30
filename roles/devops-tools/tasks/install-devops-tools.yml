@@ -1,0 +1,14 @@
+- name: Installing docker tool
+  apt:
+    name: docker.io
+    state: present
+- name: Installing git tool
+  apt: 
+    name: git
+    state: present
+- name: Unarchive a file that needs to be downloaded (Terraform)
+  unarchive:
+    src: https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_freebsd_amd64.zip
+    dest: /usr/bin
+    remote_src: yes
+
