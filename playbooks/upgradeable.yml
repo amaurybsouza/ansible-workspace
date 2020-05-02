@@ -1,0 +1,26 @@
+---
+- name: testing
+  hosts: local
+  tasks:
+    - name: Apt Update
+      become: true
+      apt:
+        update-cache: yes
+
+    - name: Aptitude must be present
+      become: true
+      apt:
+        name: aptitude
+
+    - name: Check for upgradeable
+      become: true
+      apt:
+        upgrade: Yes
+      check_mode: True
+      register: upgradeable
+
+    - name: Show me
+      debug:
+        msg: "{{ upgradeable }}"
+
+...
