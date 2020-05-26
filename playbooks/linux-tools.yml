@@ -1,4 +1,15 @@
 ---
-
-
+- hosts: local
+  tasks:
+    - name: Installing some Linux commands
+      apt: name={{ item }} state=present
+      with_items:
+        - vim
+        - git
+        - nmap
+        - net-tools
+        - sysstat
+        - iptraf
+        - cockpit
+    - name: Installing another tools
 ...
