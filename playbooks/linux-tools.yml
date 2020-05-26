@@ -11,5 +11,11 @@
         - sysstat
         - iptraf
         - cockpit
+        - tcpdump
+        - virtualbox
+        - wireshark
+        - python3
+        - curl
     - name: Installing another tools
+      apt: 
 ...
